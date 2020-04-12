@@ -6,6 +6,8 @@
 
 package guru.springframework.sfgpetclinic.model;
 
+import java.util.Set;
+
 /**
  *
  * @author arvisdev
@@ -13,5 +15,14 @@ package guru.springframework.sfgpetclinic.model;
 public class Owner extends Person
 {
 	private static final long serialVersionUID = 1L;
+        
+        private Set<Pet> pets;
+
+    public Owner(Set<Pet> pets)
+    {
+        this.pets = pets;
+    }
+        
+        
     
 }
