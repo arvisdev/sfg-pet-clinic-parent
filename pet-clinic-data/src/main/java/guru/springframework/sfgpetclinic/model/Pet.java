@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package guru.springframework.sfgpetclinic.model;
 
 import java.time.LocalDate;
@@ -14,11 +13,23 @@ import java.time.LocalDate;
  */
 public class Pet extends BaseEntity
 {
-	private static final long serialVersionUID = 1L;
 
+    private static final long serialVersionUID = 1L;
+
+    private String name;
     private PetType petType;
-    private Owner owner; 
+    private Owner owner;
     private LocalDate birthDate;
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
     public PetType getPetType()
     {
@@ -49,6 +60,5 @@ public class Pet extends BaseEntity
     {
         this.birthDate = birthDate;
     }
-    
-    
+
 }
