@@ -10,7 +10,6 @@ import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.model.Vet;
-import guru.springframework.sfgpetclinic.model.Visit;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
 import guru.springframework.sfgpetclinic.services.VetService;
@@ -83,6 +82,30 @@ public class DataLoader implements CommandLineRunner
         owner1.setCity("Miami");
         owner1.setTelephone("1231231234");
         ownerService.save(owner1);
+        
+        // ---------------------- Important ---------------------------
+        //
+        // Example of using Lombok's Builder Pattern - Owner and Person 
+        // have specific configurations - Please look at how configured
+        //
+        
+        // Builder Method #1
+        ownerService.save(Owner.builder().address("21415 Park Rock")
+                .city("Katy")
+                .firstName("Ron")
+                .lastName("Steinhauer")
+                .telephone("218-948-5122")
+                .build());
+        
+        // Builder Method #2
+        Owner owner3 = Owner.builder().address("21415 Park Rock")
+                .city("Katy")
+                .firstName("Angela")
+                .lastName("Steinhauer")
+                .telephone("218-704-3642")
+                .build();
+        
+        ownerService.save(owner3);
 
         Pet mikesPet = new Pet();
         mikesPet.setPetType(saveDogPetType);

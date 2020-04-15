@@ -12,16 +12,23 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
  *
  * @author arvisdev
  */
+@Setter
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "owners")
 public class Owner extends Person
 {
-
     private static final long serialVersionUID = 1L;
 
     @Column(name = "address")
@@ -37,46 +44,23 @@ public class Owner extends Person
     @Column(name = "last_name")
     private Set<Pet> pets = new HashSet<>();
 
-    // Getters / Setters
-    
-    public String getAddress()
-    {
-        return address;
-    }
-
-    public void setAddress(String address)
+    public Owner(String address, String city, String telephone)
     {
         this.address = address;
-    }
-
-    public String getCity()
-    {
-        return city;
-    }
-
-    public void setCity(String city)
-    {
         this.city = city;
-    }
-
-    public String getTelephone()
-    {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone)
-    {
         this.telephone = telephone;
     }
 
-    public Set<Pet> getPets()
+    @Builder
+    public Owner(String address, String city, String telephone, String firstName, String lastName)
     {
-        return pets;
+        super(firstName, lastName);
+        this.address = address;
+        this.city = city;
+        this.telephone = telephone;
     }
 
-    public void setPets(Set<Pet> pets)
-    {
-        this.pets = pets;
-    }
 
+
+    
 }
