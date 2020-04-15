@@ -20,6 +20,8 @@ public class Speciality extends BaseEntity
     @Column(name = "description")
     private String description;
 
+    // Getters / Setters
+    
     public String getDescription()
     {
         return description;

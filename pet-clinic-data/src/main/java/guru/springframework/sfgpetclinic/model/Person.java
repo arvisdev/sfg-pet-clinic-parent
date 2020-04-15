@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package guru.springframework.sfgpetclinic.model;
 
 import javax.persistence.Column;
@@ -16,7 +15,8 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class Person extends BaseEntity
 {
-	private static final long serialVersionUID = 1L;
+
+    private static final long serialVersionUID = 1L;
 
     @Column(name = "first_name")
     private String firstName;
@@ -24,6 +24,8 @@ public class Person extends BaseEntity
     @Column(name = "last_name")
     private String lastName;
 
+    // Getters / Setters
+    
     public String getFirstName()
     {
         return firstName;
@@ -43,6 +45,5 @@ public class Person extends BaseEntity
     {
         this.lastName = lastName;
     }
-    
-    
+
 }

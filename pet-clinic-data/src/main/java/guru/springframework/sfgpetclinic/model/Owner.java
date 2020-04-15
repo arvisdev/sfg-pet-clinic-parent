@@ -37,6 +37,8 @@ public class Owner extends Person
     @Column(name = "last_name")
     private Set<Pet> pets = new HashSet<>();
 
+    // Getters / Setters
+    
     public String getAddress()
     {
         return address;

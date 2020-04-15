@@ -11,7 +11,6 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import lombok.Cleanup;
 
 /**
  *
@@ -29,8 +28,10 @@ public class Visit extends BaseEntity
     
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    private Pet Pet;
+    private Pet pet;
 
+    // Getters / Setters
+    
     public LocalDate getDate()
     {
         return date;
@@ -53,12 +54,12 @@ public class Visit extends BaseEntity
 
     public Pet getPet()
     {
-        return Pet;
+        return pet;
     }
 
-    public void setPet(Pet Pet)
+    public void setPet(Pet pet)
     {
-        this.Pet = Pet;
+        this.pet = pet;
     }
 
 
