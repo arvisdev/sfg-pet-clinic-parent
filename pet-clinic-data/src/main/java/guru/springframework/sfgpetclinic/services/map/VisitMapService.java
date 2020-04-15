@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService
 {
-    
     private final VisitService visitService;
 
     public VisitMapService(VisitService visitService)
@@ -33,14 +32,17 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
     @Override
     public Visit save(Visit visit)
     {
-        if(visit.getPet()== null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
-            || visit.getPet().getOwner().getId() == null)
+        if (visit.getPet() == null || visit.getPet().getOwner() == null || visit.getPet().getId() == null
+                || visit.getPet().getOwner().getId() == null)
         {
             throw new RuntimeException("Invalid Visit");
+
+            // This is an override of the interface
+        } else
+        {
+            return super.save(visit);
+
         }
-        
-        // This is an override of the interface
-        return super.save(visit);
     }
 
     @Override
@@ -56,5 +58,4 @@ public class VisitMapService extends AbstractMapService<Visit, Long> implements 
         // This is an override of the abstract class
         super.deleteById(id);
     }
-
 }
